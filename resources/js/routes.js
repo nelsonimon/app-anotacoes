@@ -6,11 +6,11 @@ import NoteUpdade from './components/notes/NoteUpdate.vue';
 import NoteDelete from './components/notes/NoteDelete.vue';
 
 
-const Home = { template: '<div>Home</div>' }
+//const Home = { template: '<div>Home</div>' }
 // const About = { template: '<div>About</div>' }
 
 const routes = [
-    { name:"home", path: '/', component: Home },
+    { name:"home", path: '/', component: NotaIndex },
     { name:"note", path: '/note', component: NotaIndex },
     { name:"note-view", path: '/note-view/:id', component: NotaView },
     { name:"exemplo", path: '/exemplo', component: Exemplo },

@@ -19635,8 +19635,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api */ "./resources/js/api.js");
-// var dataURL = 'http://127.0.0.1:8000/note';
+/* harmony import */ var _services_DataService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/DataService */ "./resources/js/services/DataService.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'note-index',
@@ -19645,14 +19644,14 @@ __webpack_require__.r(__webpack_exports__);
       notes: []
     };
   },
-  api: _api__WEBPACK_IMPORTED_MODULE_0__["default"],
+  // api,
   mounted: function mounted() {
-    // when the Vue app is booted up, this is run automatically.
-    console.log(_api__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    var self = this; // create a closure to access component in the callback below
+    var _this = this;
 
-    $.getJSON(_api__WEBPACK_IMPORTED_MODULE_0__["default"], function (data) {
-      self.notes = data;
+    _services_DataService__WEBPACK_IMPORTED_MODULE_0__["default"].getAll().then(function (response) {
+      _this.notes = response.data;
+    })["catch"](function (e) {
+      console.log(e);
     });
   }
 });
@@ -20186,22 +20185,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./resources/js/api.js":
-/*!*****************************!*\
-  !*** ./resources/js/api.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-var api = 'http://127.0.0.1:8000/note';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (api);
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -20325,15 +20308,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var Home = {
-  template: '<div>Home</div>'
-}; // const About = { template: '<div>About</div>' }
+ //const Home = { template: '<div>Home</div>' }
+// const About = { template: '<div>About</div>' }
 
 var routes = [{
   name: "home",
   path: '/',
-  component: Home
+  component: _components_notes_NoteIndex_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   name: "note",
   path: '/note',

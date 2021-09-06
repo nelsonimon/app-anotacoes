@@ -34,8 +34,7 @@
 </template>
 
 <script>
-// var dataURL = 'http://127.0.0.1:8000/note';
-import api from '../../api';
+import DataService from "../../services/DataService";
 
 export default {
     name:'note-index',
@@ -44,13 +43,15 @@ export default {
             notes: []
         };
     },
-    api,
-    mounted() { // when the Vue app is booted up, this is run automatically.
-    console.log(api);
-        var self = this // create a closure to access component in the callback below
-        $.getJSON(api, function(data) {
-        self.notes = data;
+   // api,
+    mounted() {
 
+        DataService.getAll()
+        .then(response => {
+          this.notes=response.data;
+        })
+        .catch(e => {
+          console.log(e);
         });
     }
 }
