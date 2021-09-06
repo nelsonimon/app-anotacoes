@@ -27,7 +27,7 @@
     </head>
     <body class="antialiased">
         <div id="app" class="mt-3">
-            <example-component></example-component>
+        <router-view></router-view>
         </div>
 
         <script src="{{asset('js/app.js')}}"></script>
