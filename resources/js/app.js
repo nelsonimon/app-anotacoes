@@ -40,6 +40,7 @@ const router = VueRouter.createRouter({
     routes, // short for `routes: routes`
   })
 
+
 require('./bootstrap');
 
 const app = Vue.createApp({})
