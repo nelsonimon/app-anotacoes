@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import DataService from "../../services/DataService";
+import NoteDataService from "../../services/NoteDataService";
 
 export default {
   name: "note-add",
@@ -56,7 +56,7 @@ export default {
         note: this.nota.note
       };
 
-      DataService.create(data)
+      NoteDataService.create(data)
         .then(response => {
           this.nota.id = response.data.id;
           console.log(response.data);

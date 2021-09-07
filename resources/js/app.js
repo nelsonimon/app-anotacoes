@@ -26,24 +26,11 @@
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-// const app = new Vue({
-//     el: '#app',
-// });
 import * as Vue from 'vue';
-import * as VueRouter from 'vue-router';
-import routes from './routes';
-
-const router = VueRouter.createRouter({
-    // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-    history: VueRouter.createWebHashHistory(),
-    routes, // short for `routes: routes`
-  })
-
+import router from './routes';
 
 require('./bootstrap');
 
 const app = Vue.createApp({})
-app.component('example-component', require('./components/ExampleComponent.vue').default);
 app.use(router);
 app.mount("#app");

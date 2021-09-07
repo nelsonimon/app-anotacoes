@@ -1,6 +1,6 @@
-import http from "../services/http-common";
+import http from "./http-common";
 
-class DataService {
+class NoteDataService {
   getAll() {
     return http.get("/note");
   }
@@ -21,13 +21,13 @@ class DataService {
     return http.delete(`/note/${id}`);
   }
 
-  deleteAll() {
-    return http.delete(`/note`);
-  }
+  // deleteAll() {
+  //   return http.delete(`/note`);
+  // }
 
-  findByTitle(title) {
-    return http.get(`/note?title=${title}`);
-  }
+  // findByTitle(title) {
+  //   return http.get(`/note?title=${title}`);
+  // }
 }
 
-export default new DataService();
+export default new NoteDataService();

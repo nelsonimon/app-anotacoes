@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import DataService from "../../services/DataService";
+import NoteDataService from "../../services/NoteDataService";
 
 export default {
   name: "note-delete",
@@ -28,7 +28,7 @@ export default {
 
         // });
 
-        DataService.delete(this.nota.id)
+        NoteDataService.delete(this.nota.id)
         .then(response => {
           this.nota=response.data;
         })

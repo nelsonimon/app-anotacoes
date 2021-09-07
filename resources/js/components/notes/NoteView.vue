@@ -6,7 +6,7 @@
 
 <script>
 //import api from '../../api';
-import DataService from "../../services/DataService";
+import NoteDataService from "../../services/NoteDataService";
 export default {
     name:'note-view',
 
@@ -27,7 +27,7 @@ export default {
 
         // });
 
-        DataService.get(this.id)
+        NoteDataService.get(this.id)
         .then(response => {
           this.notes=response.data;
         })

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import DataService from "../../services/DataService";
+import NoteDataService from "../../services/NoteDataService";
 
 export default {
   name: "note-update",
@@ -56,7 +56,7 @@ export default {
         note: this.nota.note
       };
 
-      DataService.update(this.nota.id, data)
+      NoteDataService.update(this.nota.id, data)
         .then(response => {
           this.nota.id = response.data.id;
           console.log(response.data);
@@ -82,7 +82,7 @@ export default {
 
         // });
 
-        DataService.get(this.nota.id)
+        NoteDataService.get(this.nota.id)
         .then(response => {
           this.nota=response.data;
         })

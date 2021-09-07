@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import DataService from "../../services/DataService";
+import NoteDataService from "../../services/NoteDataService";
 
 export default {
     name:'note-index',
@@ -46,7 +46,7 @@ export default {
    // api,
     mounted() {
 
-        DataService.getAll()
+        NoteDataService.getAll()
         .then(response => {
           this.notes=response.data;
         })
