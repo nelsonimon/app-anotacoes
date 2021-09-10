@@ -22,15 +22,10 @@ export default {
         //console.log(this.$route.params.id)
         this.nota.id=this.$route.params.id;
 
-        // var self = this // create a closure to access component in the callback below
-        // $.getJSON(api+'/'+this.id, function(data) {
-        // self.notes = data;
-
-        // });
-
         NoteDataService.delete(this.nota.id)
         .then(response => {
           this.nota=response.data;
+          this.$router.push({ name: 'home' })
         })
         .catch(e => {
           console.log(e);

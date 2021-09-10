@@ -1,7 +1,9 @@
 <template>
-   <h2>Detalhes {{id}}</h2>
-   <h1>{{notes.title}}</h1>
-  <p>{{notes.note}}</p>
+  <div>
+    <h2>Detalhes {{notes.id}}</h2>
+    <h1>{{notes.title}}</h1>
+    <p>{{notes.note}}</p>
+  </div>
 </template>
 
 <script>

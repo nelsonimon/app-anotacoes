@@ -28,8 +28,10 @@
     </div>
 
     <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newNotel">Add</button>
+      <h4>Sucesso!</h4>
+      <router-link :to="{ name: 'home'}">
+        <button class="btn btn-success">Voltar</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -65,11 +67,6 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    },
-
-    newNote() {
-      this.submitted = false;
-      this.nota = {};
     }
   }
 };

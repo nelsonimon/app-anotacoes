@@ -5,7 +5,11 @@
             <thead>
                 <tr>
                     <th>Nota</th>
-                    <th></th>
+                    <th class="text-right">
+                        <router-link :to="{ name: 'note-add'}">
+                             <button class="btn btn-primary">Adicionar</button>
+                        </router-link>
+                    </th>
                 </tr>
             </thead>
             <tbody>

@@ -20,3 +20,6 @@ Route::get('/', function () {
 // Route::get('/note',[NoteController::class,'index']);
 //Route::post('/note','App\Http\Controllers\NoteController@index');
 Route::resource('note','App\Http\Controllers\NoteController');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
