@@ -40,17 +40,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'note-index',
@@ -243,96 +232,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _c("table", { staticClass: "table table-striped" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", [_vm._v("Nota")]),
-            _vm._v(" "),
-            _c(
-              "th",
-              { staticClass: "text-right" },
+  return _c(
+    "v-list",
+    { attrs: { flat: "", subheader: "", "three-line": "" } },
+    [
+      _c("v-subheader", [_vm._v("Notas")]),
+      _vm._v(" "),
+      _c(
+        "v-list-item-group",
+        {
+          attrs: { multiple: "", "active-class": "" },
+          model: {
+            value: _vm.settings,
+            callback: function($$v) {
+              _vm.settings = $$v
+            },
+            expression: "settings"
+          }
+        },
+        _vm._l(_vm.notes, function(note) {
+          return _c("v-list-item", {
+            key: note.id,
+            scopedSlots: _vm._u(
               [
-                _c("router-link", { attrs: { to: { name: "note-add" } } }, [
-                  _c("button", { staticClass: "btn btn-primary" }, [
-                    _vm._v("Adicionar")
-                  ])
-                ])
+                {
+                  key: "default",
+                  fn: function(ref) {
+                    var active = ref.active
+                    return [
+                      _c(
+                        "v-list-item-action",
+                        [
+                          _c("v-checkbox", { attrs: { "input-value": active } })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item-content",
+                        [
+                          _c("v-list-item-title", [_vm._v(_vm._s(note.title))]),
+                          _vm._v(" "),
+                          _c("v-list-item-subtitle", [
+                            _vm._v(_vm._s(note.note))
+                          ])
+                        ],
+                        1
+                      )
+                    ]
+                  }
+                }
               ],
-              1
+              null,
+              true
             )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.notes, function(note) {
-            return _c("tr", { key: note.id }, [
-              _c("td", [
-                _vm._v("\r\n                        " + _vm._s(note.title)),
-                _c("br"),
-                _vm._v(
-                  "\r\n                        " +
-                    _vm._s(note.note) +
-                    "\r\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "td",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: { name: "note-view", params: { id: note.id } }
-                      }
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-primary" }, [
-                        _vm._v("Ver")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: { name: "note-update", params: { id: note.id } }
-                      }
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-primary" }, [
-                        _vm._v("Editar")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: { name: "note-delete", params: { id: note.id } }
-                      }
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-primary" }, [
-                        _vm._v("Deletar")
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ])
-          }),
-          0
-        )
-      ])
-    ])
-  ])
+          })
+        }),
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

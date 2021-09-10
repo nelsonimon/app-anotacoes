@@ -38,13 +38,45 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <!-- <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Anotações</v-toolbar-title>
+    </v-app-bar> -->
+    <v-app-bar
+      app
+      color="#fcb69f"
+      dark
+      src="https://cdn.pixabay.com/photo/2017/05/11/23/21/mount-fuji-2305606_960_720.jpg"
+      prominent
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+        ></v-img>
+      </template>
+
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-app-bar-title>Anotações</v-app-bar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="">
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -56,7 +88,7 @@
         {
             drawer: null,
             items: [
-                    { title: 'Anotações', icon: 'mdi-view-dashboard', to:'/note' },
+                    { title: 'Anotações', icon: 'mdi-format-list-checks', to:'/note' },
                     { title: 'Sobre', icon: 'mdi-help-box' },
                 ],
             right: null,

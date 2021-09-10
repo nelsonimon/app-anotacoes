@@ -1,40 +1,29 @@
 <template>
-<div class="row">
-    <div class="col-12">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nota</th>
-                    <th class="text-right">
-                        <router-link :to="{ name: 'note-add'}">
-                             <button class="btn btn-primary">Adicionar</button>
-                        </router-link>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="note in notes" :key="note.id">
-                    <td>
-                        {{note.title}}<br/>
-                        {{note.note}}
-                    </td>
-                    <td>
-                        <router-link :to="{ name: 'note-view', params:{'id':note.id}}">
-                            <button class="btn btn-primary">Ver</button>
-                        </router-link>
-                        <router-link :to="{ name: 'note-update', params:{'id':note.id}}">
-                            <button class="btn btn-primary">Editar</button>
-                        </router-link>
-                        <router-link :to="{ name: 'note-delete', params:{'id':note.id}}">
-                            <button class="btn btn-primary">Deletar</button>
-                        </router-link>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+    <v-list
+      flat
+      subheader
+      three-line
+    >
+    <v-subheader>Notas</v-subheader>
+    <v-list-item-group
+        v-model="settings"
+        multiple
+        active-class=""
+     >
+        <v-list-item v-for="note in notes" :key="note.id">
+          <template v-slot:default="{ active }">
+            <v-list-item-action>
+              <v-checkbox :input-value="active"></v-checkbox>
+            </v-list-item-action>
 
+            <v-list-item-content>
+              <v-list-item-title>{{note.title}}</v-list-item-title>
+              <v-list-item-subtitle>{{note.note}}</v-list-item-subtitle>
+            </v-list-item-content>
+          </template>
+        </v-list-item>
+    </v-list-item-group>
+    </v-list>
 </template>
 
 <script>

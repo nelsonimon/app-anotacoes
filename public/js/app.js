@@ -2117,13 +2117,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       drawer: null,
       items: [{
         title: 'Anotações',
-        icon: 'mdi-view-dashboard',
+        icon: 'mdi-format-list-checks',
         to: '/note'
       }, {
         title: 'Sobre',
@@ -38253,8 +38285,42 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-app-bar",
-        { attrs: { app: "" } },
+        {
+          attrs: {
+            app: "",
+            color: "#fcb69f",
+            dark: "",
+            src:
+              "https://cdn.pixabay.com/photo/2017/05/11/23/21/mount-fuji-2305606_960_720.jpg",
+            prominent: ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "img",
+              fn: function(ref) {
+                var props = ref.props
+                return [
+                  _c(
+                    "v-img",
+                    _vm._b(
+                      {
+                        attrs: {
+                          gradient:
+                            "to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+                        }
+                      },
+                      "v-img",
+                      props,
+                      false
+                    )
+                  )
+                ]
+              }
+            }
+          ])
+        },
         [
+          _vm._v(" "),
           _c("v-app-bar-nav-icon", {
             on: {
               click: function($event) {
@@ -38263,12 +38329,35 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Anotações")])
+          _c("v-app-bar-title", [_vm._v("Anotações")]),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            { attrs: { icon: "" } },
+            [_c("v-icon", [_vm._v("mdi-magnify")])],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            { attrs: { icon: "" } },
+            [_c("v-icon", [_vm._v("mdi-heart")])],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            { attrs: { icon: "" } },
+            [_c("v-icon", [_vm._v("mdi-dots-vertical")])],
+            1
+          )
         ],
         1
       ),
       _vm._v(" "),
-      _c("v-main", [_c("router-view")], 1)
+      _c("v-main", {}, [_c("router-view")], 1)
     ],
     1
   )
