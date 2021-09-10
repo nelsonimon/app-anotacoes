@@ -6,7 +6,6 @@
     >
     <v-subheader>Notas</v-subheader>
     <v-list-item-group
-        v-model="settings"
         multiple
         active-class=""
      >

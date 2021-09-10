@@ -29,6 +29,11 @@ const routes = [
         path: '/note-delete/:id',
         component: () => import('./components/notes/NoteDelete.vue')
     },
+    {
+        name:"sobre",
+        path: '/sobre',
+        component: () => import('./components/SobreComponent.vue')
+    },
   ]
 
   const router = new VueRouter({

@@ -39,7 +39,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'note-index',
@@ -240,16 +239,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-list-item-group",
-        {
-          attrs: { multiple: "", "active-class": "" },
-          model: {
-            value: _vm.settings,
-            callback: function($$v) {
-              _vm.settings = $$v
-            },
-            expression: "settings"
-          }
-        },
+        { attrs: { multiple: "", "active-class": "" } },
         _vm._l(_vm.notes, function(note) {
           return _c("v-list-item", {
             key: note.id,
