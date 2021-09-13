@@ -39,6 +39,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'note-index',
@@ -241,44 +245,56 @@ var render = function() {
         "v-list-item-group",
         { attrs: { multiple: "", "active-class": "" } },
         _vm._l(_vm.notes, function(note) {
-          return _c("v-list-item", {
-            key: note.id,
-            scopedSlots: _vm._u(
-              [
-                {
-                  key: "default",
-                  fn: function(ref) {
-                    var active = ref.active
-                    return [
-                      _c(
-                        "v-list-item-action",
-                        [
-                          _c("v-checkbox", { attrs: { "input-value": active } })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item-content",
-                        [
-                          _c("v-list-item-title", [_vm._v(_vm._s(note.title))]),
+          return _c(
+            "div",
+            { key: note.id },
+            [
+              _c("v-list-item", {
+                scopedSlots: _vm._u(
+                  [
+                    {
+                      key: "default",
+                      fn: function(ref) {
+                        var active = ref.active
+                        return [
+                          _c(
+                            "v-list-item-action",
+                            [
+                              _c("v-checkbox", {
+                                attrs: { "input-value": active }
+                              })
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
-                          _c("v-list-item-subtitle", [
-                            _vm._v(_vm._s(note.note))
-                          ])
-                        ],
-                        1
-                      )
-                    ]
-                  }
-                }
-              ],
-              null,
-              true
-            )
-          })
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(_vm._s(note.title))
+                              ]),
+                              _vm._v(" "),
+                              _c("v-list-item-subtitle", [
+                                _vm._v(_vm._s(note.note))
+                              ])
+                            ],
+                            1
+                          )
+                        ]
+                      }
+                    }
+                  ],
+                  null,
+                  true
+                )
+              }),
+              _vm._v(" "),
+              _c("v-divider")
+            ],
+            1
+          )
         }),
-        1
+        0
       )
     ],
     1

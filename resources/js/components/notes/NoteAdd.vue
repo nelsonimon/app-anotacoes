@@ -1,39 +1,58 @@
 <template>
-  <div class="submit-form">
-    <div v-if="!submitted">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input
-          type="text"
-          class="form-control"
-          id="title"
-          required
-          v-model="nota.title"
-          name="title"
-        />
-      </div>
 
-      <div class="form-group">
-        <label for="note">Note</label>
-        <input
-          class="form-control"
-          id="note"
-          required
-          v-model="nota.note"
-          name="note"
-        />
-      </div>
+  <div v-if="!submitted">
+    <h1>Nova Nota</h1>
+    <v-form
+      ref="form"
+      v-model="valid"
+      lazy-validation
+    >
+      <v-text-field
+        v-model="nota.title"
+        :counter="10"
+        :rules="nameRules"
+        label="Titulo"
+        name="title"
+        required
+      ></v-text-field>
 
-      <button @click="saveNote" class="btn btn-success">Submit</button>
-    </div>
+      <v-text-field
+        v-model="nota.note"
+        :counter="10"
+        :rules="nameRules"
+        label="Descrição"
+        name="note"
+        required
+      ></v-text-field>
 
-    <div v-else>
-      <h4>Sucesso!</h4>
-      <router-link :to="{ name: 'home'}">
-        <button class="btn btn-success">Voltar</button>
-      </router-link>
-    </div>
+      <v-checkbox
+        v-model="checkbox"
+        label="Realizada?"
+        name="done"
+        required
+      ></v-checkbox>
+
+      <v-btn
+        :disabled="!valid"
+        color="success"
+        class="mr-4"
+        @click="saveNote"
+      >
+        Cadastrar
+      </v-btn>
+    </v-form>
   </div>
+  <div v-else>
+    <h4>Sucesso!</h4>
+     <v-btn
+        to="/home">Voltar</v-btn>
+  </div>
+  <!-- <div v-else >
+    <h4>Sucesso!</h4>
+    <router-link :to="{ name: 'home'}">
+      <button class="btn btn-success">Voltar</button>
+    </router-link>
+  </div> -->
 </template>
 
 <script>
@@ -49,9 +68,17 @@ export default {
         note: ""
       },
       submitted: false
+      ,valid: true,
+      nameRules: [
+        v => !!v || 'Campo é obrigatório',
+        v => (v && v.length >= 10) || 'Campo precisa ter no mínimo 10 letras',
+      ]
     };
   },
   methods: {
+    validate () {
+        this.$refs.form.validate()
+      },
     saveNote() {
       var data = {
         title: this.nota.title,
@@ -71,10 +98,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.submit-form {
-  max-width: 300px;
-  margin: auto;
-}
-</style>

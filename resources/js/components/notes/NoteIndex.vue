@@ -9,7 +9,8 @@
         multiple
         active-class=""
      >
-        <v-list-item v-for="note in notes" :key="note.id">
+      <div v-for="note in notes" :key="note.id">
+        <v-list-item >
           <template v-slot:default="{ active }">
             <v-list-item-action>
               <v-checkbox :input-value="active"></v-checkbox>
@@ -21,6 +22,9 @@
             </v-list-item-content>
           </template>
         </v-list-item>
+        <v-divider></v-divider>
+      </div>
+
     </v-list-item-group>
     </v-list>
 </template>

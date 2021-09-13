@@ -2158,6 +2158,10 @@ __webpack_require__.r(__webpack_exports__);
         icon: 'mdi-format-list-checks',
         to: '/note'
       }, {
+        title: 'Nova nota',
+        icon: 'mdi-new-box',
+        to: '/note-add'
+      }, {
         title: 'Sobre',
         icon: 'mdi-help-box',
         to: '/sobre'
