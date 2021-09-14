@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import NoteDataService from "../../services/NoteDataService";
+import NoteDataService from "@/services/NoteDataService";
 
 export default {
     name:'note-index',
