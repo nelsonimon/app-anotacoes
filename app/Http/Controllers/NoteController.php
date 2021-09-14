@@ -4,39 +4,45 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class NoteController extends Controller
 {
     public function index()
     {
-        return response()->json(Note::all());
+        return response()->json(Note::all(), Response::HTTP_OK);
     }
 
     public function show($id)
     {
         $note = Note::findOrFail($id);
-        return response()->json($note);
+        return response()->json($note, Response::HTTP_OK);
     }
 
     public  function store(Request $request)
     {
         $note = Note::create($request->all());
-        return response()->json($note);
+        return response()->json($note, Response::HTTP_CREATED);
     }
 
     public function update(Request $request, $id)
     {
-        $note =  Note::findOrFail($id);
-        $note->fill($request->all());
-        $note->save();
+        try {
+            $note =  Note::findOrFail($id);
+            $note->fill($request->all());
+            $note->save();
 
-        return response()->json($note);
+            return response()->json('', Response::NO_CONTENT);
+        } catch(ModelNotFoundException $mException) {
+            return response()->json($mException->getMessage(), Response::HTTP_NOT_FOUND);
+        }
     }
 
     public function destroy($id)
     {
-        $note = NOte::findOrFail($id);
+        $note = Note::findOrFail($id);
         $note->delete();
-        return response()->json(['message'=>'Removido com sucesso!']);
+        return response()->json(['message'=>'Removido com sucesso!'], Response::HTTP_OK);
     }
 }
