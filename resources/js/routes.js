@@ -5,7 +5,7 @@ const routes = [
     {
         name:"home",
         path: '/',
-        alias: "/note",
+        alias: "/notes",
         component: () => import('./components/notes/NoteIndex.vue')
     },
     // { name:"note", path: '/note', component: () => import('./components/notes/NoteIndex.vue') },

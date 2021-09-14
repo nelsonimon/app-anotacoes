@@ -92,32 +92,32 @@ var NoteDataService = /*#__PURE__*/function () {
   _createClass(NoteDataService, [{
     key: "getAll",
     value: function getAll() {
-      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].get("/note");
+      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api");
     }
   }, {
     key: "get",
     value: function get(id) {
-      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].get("/note/".concat(id));
+      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/".concat(id));
     }
   }, {
     key: "create",
     value: function create(data) {
-      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].post("/note", data);
+      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api", data);
     }
   }, {
     key: "update",
     value: function update(id, data) {
-      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].put("/note/".concat(id), data);
+      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"].put("/api/".concat(id), data);
     }
   }, {
     key: "delete",
     value: function _delete(id) {
-      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/note/".concat(id));
+      return _http_common__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"]("/api/".concat(id));
     } // deleteAll() {
-    //   return http.delete(`/note`);
+    //   return http.delete(`/api`);
     // }
     // findByTitle(title) {
-    //   return http.get(`/note?title=${title}`);
+    //   return http.get(`/api?title=${title}`);
     // }
 
   }]);

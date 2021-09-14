@@ -2,31 +2,31 @@ import http from "./http-common";
 
 class NoteDataService {
   getAll() {
-    return http.get("/note");
+    return http.get("/api");
   }
 
   get(id) {
-    return http.get(`/note/${id}`);
+    return http.get(`/api/${id}`);
   }
 
   create(data) {
-    return http.post("/note", data);
+    return http.post("/api", data);
   }
 
   update(id, data) {
-    return http.put(`/note/${id}`, data);
+    return http.put(`/api/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/note/${id}`);
+    return http.delete(`/api/${id}`);
   }
 
   // deleteAll() {
-  //   return http.delete(`/note`);
+  //   return http.delete(`/api`);
   // }
 
   // findByTitle(title) {
-  //   return http.get(`/note?title=${title}`);
+  //   return http.get(`/api?title=${title}`);
   // }
 }
 

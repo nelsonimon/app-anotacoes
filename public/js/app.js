@@ -2156,7 +2156,7 @@ __webpack_require__.r(__webpack_exports__);
       items: [{
         title: 'Anotações',
         icon: 'mdi-format-list-checks',
-        to: '/note'
+        to: '/notes'
       }, {
         title: 'Nova nota',
         icon: 'mdi-new-box',
@@ -2266,7 +2266,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   name: "home",
   path: '/',
-  alias: "/note",
+  alias: "/notes",
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_components_notes_NoteIndex_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/notes/NoteIndex.vue */ "./resources/js/components/notes/NoteIndex.vue"));
   }

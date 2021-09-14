@@ -88,7 +88,7 @@
         {
             drawer: null,
             items: [
-                    { title: 'Anotações', icon: 'mdi-format-list-checks', to:'/note' },
+                    { title: 'Anotações', icon: 'mdi-format-list-checks', to:'/notes' },
                     { title: 'Nova nota', icon: 'mdi-new-box', to:'/note-add' },
                     { title: 'Sobre', icon: 'mdi-help-box', to:'/sobre' },
                 ],
