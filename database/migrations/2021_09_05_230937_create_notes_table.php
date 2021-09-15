@@ -17,6 +17,7 @@ class CreateNotesTable extends Migration
             $table->increments("id");
             $table->text("title");
             $table->text("note");
+            $table->boolean("done")->default(false);
             $table->timestamps();
         });
     }

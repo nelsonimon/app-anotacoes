@@ -11,9 +11,13 @@
      >
       <div v-for="note in notes" :key="note.id">
         <v-list-item >
-          <template v-slot:default="{ active }">
+          <template >
             <v-list-item-action>
-              <v-checkbox :input-value="active"></v-checkbox>
+              <v-checkbox
+                v-model="note.done"
+                true-value="1"
+                false-value="0"
+              ></v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>
@@ -37,6 +41,7 @@ export default {
     data(){
         return{
             notes: []
+            ,checkbox:true
         };
     },
    // api,

@@ -43,12 +43,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'note-index',
   data: function data() {
     return {
-      notes: []
+      notes: [],
+      checkbox: true
     };
   },
   // api,
@@ -249,45 +254,40 @@ var render = function() {
             "div",
             { key: note.id },
             [
-              _c("v-list-item", {
-                scopedSlots: _vm._u(
+              _c(
+                "v-list-item",
+                [
                   [
-                    {
-                      key: "default",
-                      fn: function(ref) {
-                        var active = ref.active
-                        return [
-                          _c(
-                            "v-list-item-action",
-                            [
-                              _c("v-checkbox", {
-                                attrs: { "input-value": active }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-content",
-                            [
-                              _c("v-list-item-title", [
-                                _vm._v(_vm._s(note.title))
-                              ]),
-                              _vm._v(" "),
-                              _c("v-list-item-subtitle", [
-                                _vm._v(_vm._s(note.note))
-                              ])
-                            ],
-                            1
-                          )
-                        ]
-                      }
-                    }
-                  ],
-                  null,
-                  true
-                )
-              }),
+                    _c(
+                      "v-list-item-action",
+                      [
+                        _c("v-checkbox", {
+                          attrs: { "true-value": "1", "false-value": "0" },
+                          model: {
+                            value: note.done,
+                            callback: function($$v) {
+                              _vm.$set(note, "done", $$v)
+                            },
+                            expression: "note.done"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-list-item-content",
+                      [
+                        _c("v-list-item-title", [_vm._v(_vm._s(note.title))]),
+                        _vm._v(" "),
+                        _c("v-list-item-subtitle", [_vm._v(_vm._s(note.note))])
+                      ],
+                      1
+                    )
+                  ]
+                ],
+                2
+              ),
               _vm._v(" "),
               _c("v-divider")
             ],

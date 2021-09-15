@@ -69,6 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "note-add",
@@ -77,15 +78,11 @@ __webpack_require__.r(__webpack_exports__);
       nota: {
         id: null,
         title: "",
-        note: ""
+        note: "",
+        done: "0"
       },
       submitted: false,
-      valid: true,
-      nameRules: [function (v) {
-        return !!v || 'Campo é obrigatório';
-      }, function (v) {
-        return v && v.length >= 10 || 'Campo precisa ter no mínimo 10 letras';
-      }]
+      valid: true
     };
   },
   methods: {
@@ -97,7 +94,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var data = {
         title: this.nota.title,
-        note: this.nota.note
+        note: this.nota.note,
+        done: this.nota.done
       };
       _services_NoteDataService__WEBPACK_IMPORTED_MODULE_0__["default"].create(data).then(function (response) {
         _this.nota.id = response.data.id;
@@ -286,7 +284,7 @@ var render = function() {
     ? _c(
         "div",
         [
-          _c("h1", [_vm._v("Nova Nota")]),
+          _c("v-subheader", [_vm._v("Nova Nota")]),
           _vm._v(" "),
           _c(
             "v-form",
@@ -304,8 +302,17 @@ var render = function() {
             [
               _c("v-text-field", {
                 attrs: {
-                  counter: 10,
-                  rules: _vm.nameRules,
+                  rules: [
+                    function(v) {
+                      return !!v || "Campo é obrigatório"
+                    },
+                    function(v) {
+                      return (
+                        (v && v.length >= 5) ||
+                        "Campo precisa ter no mínimo 5 letras"
+                      )
+                    }
+                  ],
                   label: "Titulo",
                   name: "title",
                   required: ""
@@ -320,13 +327,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("v-text-field", {
-                attrs: {
-                  counter: 10,
-                  rules: _vm.nameRules,
-                  label: "Descrição",
-                  name: "note",
-                  required: ""
-                },
+                attrs: { label: "Descrição", name: "note", required: "" },
                 model: {
                   value: _vm.nota.note,
                   callback: function($$v) {
@@ -337,13 +338,19 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("v-checkbox", {
-                attrs: { label: "Realizada?", name: "done", required: "" },
+                attrs: {
+                  "true-value": "1",
+                  "false-value": "0",
+                  label: "Realizada?",
+                  name: "done",
+                  required: ""
+                },
                 model: {
-                  value: _vm.checkbox,
+                  value: _vm.nota.done,
                   callback: function($$v) {
-                    _vm.checkbox = $$v
+                    _vm.$set(_vm.nota, "done", $$v)
                   },
-                  expression: "checkbox"
+                  expression: "nota.done"
                 }
               }),
               _vm._v(" "),
@@ -365,9 +372,9 @@ var render = function() {
     : _c(
         "div",
         [
-          _c("h4", [_vm._v("Sucesso!")]),
+          _c("v-subheader", [_vm._v("Nova Nota")]),
           _vm._v(" "),
-          _c("v-btn", { attrs: { to: "/home" } }, [_vm._v("Voltar")])
+          _c("v-btn", { attrs: { to: "/notes" } }, [_vm._v("Voltar")])
         ],
         1
       )
