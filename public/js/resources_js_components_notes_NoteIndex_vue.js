@@ -47,21 +47,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'note-index',
   data: function data() {
     return {
       notes: [],
-      checkbox: true
+      checkbox: true,
+      nota: {
+        id: null
+      }
     };
+  },
+  methods: {
+    deleteNote: function deleteNote(id) {
+      var _this = this;
+
+      _services_NoteDataService__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"](id).then(function (response) {
+        //Encontra o array que ira remove pelo id
+        var noteRemove = _this.notes.find(function (notaa) {
+          return notaa.id === id;
+        }); //encontra o indice (index)
+
+
+        var noteIndex = _this.notes.indexOf(noteRemove); //remove o item
+
+
+        _this.notes.splice(noteIndex, 1);
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
   },
   // api,
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     _services_NoteDataService__WEBPACK_IMPORTED_MODULE_0__["default"].getAll().then(function (response) {
-      _this.notes = response.data;
+      _this2.notes = response.data;
     })["catch"](function (e) {
       console.log(e);
     });
@@ -249,52 +285,89 @@ var render = function() {
       _c(
         "v-list-item-group",
         { attrs: { multiple: "", "active-class": "" } },
-        _vm._l(_vm.notes, function(note) {
-          return _c(
-            "div",
-            { key: note.id },
-            [
-              _c(
-                "v-list-item",
+        [
+          _c(
+            "v-fade-transition",
+            { staticClass: "py-0", attrs: { group: "", tag: "v-list" } },
+            _vm._l(_vm.notes, function(note) {
+              return _c(
+                "div",
+                { key: note.id },
                 [
-                  [
-                    _c(
-                      "v-list-item-action",
+                  _c(
+                    "v-list-item",
+                    [
                       [
-                        _c("v-checkbox", {
-                          attrs: { "true-value": "1", "false-value": "0" },
-                          model: {
-                            value: note.done,
-                            callback: function($$v) {
-                              _vm.$set(note, "done", $$v)
-                            },
-                            expression: "note.done"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-list-item-content",
-                      [
-                        _c("v-list-item-title", [_vm._v(_vm._s(note.title))]),
+                        _c(
+                          "v-list-item-action",
+                          [
+                            _c("v-checkbox", {
+                              attrs: { "true-value": "1", "false-value": "0" },
+                              model: {
+                                value: note.done,
+                                callback: function($$v) {
+                                  _vm.$set(note, "done", $$v)
+                                },
+                                expression: "note.done"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("v-list-item-subtitle", [_vm._v(_vm._s(note.note))])
-                      ],
-                      1
-                    )
-                  ]
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c("v-list-item-title", [
+                              _vm._v(_vm._s(note.title))
+                            ]),
+                            _vm._v(" "),
+                            _c("v-list-item-subtitle", [
+                              _vm._v(_vm._s(note.note))
+                            ])
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-list-item-action",
+                          [
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: { icon: "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteNote(note.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-icon",
+                                  { attrs: { color: "grey lighten-1" } },
+                                  [_vm._v("mdi-delete")]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c("v-divider")
                 ],
-                2
-              ),
-              _vm._v(" "),
-              _c("v-divider")
-            ],
-            1
+                1
+              )
+            }),
+            0
           )
-        }),
-        0
+        ],
+        1
       )
     ],
     1
