@@ -1,6 +1,6 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="250"> + <img src="https://v3.vuejs.org/logo.png" width="80">      +    <img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-light-text.svg" width="200"> +
-<img src="https://www.sqlite.org/images/sqlite370_banner.gif" width="200">
+<img src="https://www.sqlite.org/images/sqlite370_banner.gif" width="150">
 </p>
 
 
