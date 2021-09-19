@@ -33,7 +33,7 @@ class NoteController extends Controller
             $note->fill($request->all());
             $note->save();
 
-            return response()->json('', Response::NO_CONTENT);
+            return response()->json(['message'=>'Atualizado com sucesso!'], Response::HTTP_OK);
         } catch(ModelNotFoundException $mException) {
             return response()->json($mException->getMessage(), Response::HTTP_NOT_FOUND);
         }
